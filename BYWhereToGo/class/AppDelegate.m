@@ -24,7 +24,6 @@
     
     BYTabbarVC *tabbar_VC = [[BYTabbarVC alloc] init];
     self.window.rootViewController = tabbar_VC;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
     return YES;
 }
 

@@ -16,6 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"color_main"] forBarMetrics:UIBarMetricsDefault];
+    
+    NSMutableDictionary *attri = [NSMutableDictionary dictionary];
+    attri[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    self.navigationBar.titleTextAttributes = attri;
+    
+    [self.navigationBar setTintColor:[UIColor whiteColor]];
+    
+//    self.hidesBarsOnTap = YES;
 }
 
 

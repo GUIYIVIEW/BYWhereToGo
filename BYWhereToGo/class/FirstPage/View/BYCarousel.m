@@ -8,9 +8,11 @@
 
 #import "BYCarousel.h"
 
-#define scrollWidth BYWIDTH
 
+#define scrollWidth BYWIDTH
 static long step = 0;
+
+#define distanceBetweenRows 5
 
 @interface BYCarousel()<UIScrollViewDelegate>
 {

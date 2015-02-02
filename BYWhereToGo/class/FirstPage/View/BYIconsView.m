@@ -8,6 +8,11 @@
 
 #import "BYIconsView.h"
 #import "UIView+MJM.h"
+#import "BYScanVC.h"
+
+@interface BYIconsView() 
+
+@end
 
 @implementation BYIconsView
 
@@ -30,6 +35,9 @@
     // 47 * 35
     //scan
     UIButton *scan = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, (self.frame.size.width-1)/2, self.frame.size.height)];
+    [scan addTarget:self
+             action:@selector(setupCamera)
+   forControlEvents:1<<6];
     CGImageRef scan_image = [UIImage imageNamed:@"scan"].CGImage;
     [scan setImage:[UIImage imageWithCGImage:scan_image scale:3.3 orientation:UIImageOrientationUp] forState:0];
     [scan setImage:[UIImage imageWithCGImage:scan_image scale:3.3 orientation:UIImageOrientationUp] forState:1 << 0];
@@ -44,7 +52,17 @@
     [mail setImage:[UIImage imageWithCGImage:mail_image scale:3.3 orientation:UIImageOrientationUp] forState:0];
     [mail setImage:[UIImage imageWithCGImage:mail_image scale:3.3 orientation:UIImageOrientationUp] forState:1 << 0];
     [self addSubview:mail];
-
 }
+
+- (void)setupCamera
+{
+    if ([self.delegate respondsToSelector:@selector(setupCameraDele)]) {
+        [self.delegate setupCameraDele];
+    }
+}
+
+
+
+
 
 @end

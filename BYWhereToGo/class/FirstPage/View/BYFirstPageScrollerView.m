@@ -12,6 +12,11 @@
 #import "BYContentDetails.h"
 #import "BYDetailsData.h"
 #import "BYIconsView.h"
+#import "BYFirstPageVC.h"
+
+@interface BYFirstPageScrollerView() <BYIconsViewDelegate>
+
+@end
 
 @implementation BYFirstPageScrollerView
 
@@ -36,20 +41,33 @@
 -(void)makeContentDetails
 {
     NSArray *images = [BYCarouselDatas makeCarouselData];
-
+    
     BYCarousel *carousel = [[BYCarousel alloc] initWithFrame:CGRectMake(0, 80, BYWIDTH, 130)];
     carousel.images_data = images;
     [self addSubview:carousel];
     
     BYIconsView *icons = [[BYIconsView alloc] initWithFrame:CGRectMake(BYWIDTH-95, 80, 95, 35)];
     [icons makeIcons];
+    icons.delegate = self;
     [self addSubview:icons];
     
     NSArray *itemsData = [BYDetailsData makeDetailsData];
     BYContentDetails *content_details = [[BYContentDetails alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(carousel.frame), BYWIDTH, BYHEIGHT-130)];
     content_details.itemsdata = itemsData;
     [self addSubview:content_details];
-    
-    
 }
+
+-(void)setupCameraDele
+{
+    id next = [self nextResponder];
+    while (![next isKindOfClass:[BYFirstPageVC class]]) {
+        next = [next nextResponder];
+    }
+    if ([next isKindOfClass:[BYFirstPageVC class]]) {
+        BYFirstPageVC *vc = (BYFirstPageVC *)next;
+        [vc setupCameraDele];
+    }
+}
+
+
 @end

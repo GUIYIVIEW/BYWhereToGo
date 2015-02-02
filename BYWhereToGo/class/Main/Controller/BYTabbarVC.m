@@ -29,12 +29,13 @@
     
     BYOrderServiceVC *orderService = [[BYOrderServiceVC alloc] init];
     orderService.title = @"订单管理";
-    orderService.view.backgroundColor = [UIColor whiteColor];
+    orderService.view.backgroundColor = blue_order_main;
     BYBaseNavVC *orderServiceNav = [[BYBaseNavVC alloc] initWithRootViewController:orderService];
+    [orderServiceNav.navigationBar setShadowImage:[UIImage new]];
 
     BYVoiceVC *voice = [[BYVoiceVC alloc] init];
     voice.title = @"语音";
-    voice.view.backgroundColor = [UIColor whiteColor];
+    voice.view.backgroundColor = blue_discover_bg;
     BYBaseNavVC *voiceNav = [[BYBaseNavVC alloc] initWithRootViewController:voice];
     
     BYFirstPageVC *firstPage = [[BYFirstPageVC alloc] init];
@@ -44,12 +45,12 @@
     
     BYDiscoverVC *discover = [[BYDiscoverVC alloc] init];
     discover.title = @"发现";
-    discover.view.backgroundColor = [UIColor whiteColor];
+    discover.view.backgroundColor = blue_discover_bg;
     BYBaseNavVC *discoverNav = [[BYBaseNavVC alloc] initWithRootViewController:discover];
     
     BYMineVC *mine = [[BYMineVC alloc] init];
     mine.title = @"我的";
-    mine.view.backgroundColor = [UIColor whiteColor];
+    mine.view.backgroundColor = blue_discover_bg;
     BYBaseNavVC *mineNav = [[BYBaseNavVC alloc] initWithRootViewController:mine];
     
     self.viewControllers = [NSArray arrayWithObjects:orderServiceNav,voiceNav,firstPageNav,discoverNav,mineNav, nil];
@@ -60,7 +61,7 @@
 
 //    [self.tabBar setTranslucent:YES];
     [self.tabBar addSubview:tabBar];
-    self.selectedIndex = 2;
+    self.selectedIndex = 1;
 }
 
 - (void)didSelectButtonto:(int)to

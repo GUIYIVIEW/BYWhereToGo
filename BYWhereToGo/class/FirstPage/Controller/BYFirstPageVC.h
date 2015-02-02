@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BYFirstPageVC : UIViewController
-
+-(void)setupCameraDele;
+-(void)setupEmailDele;
 @end

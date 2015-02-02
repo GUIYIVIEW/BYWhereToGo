@@ -48,7 +48,7 @@
     center.alpha = 0.95;
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:center.bounds
                                                    byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight
-                                                         cornerRadii:CGSizeMake(5, 5)];
+                                                         cornerRadii:CGSizeMake(6,6)];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = center.bounds;
     maskLayer.path = maskPath.CGPath;

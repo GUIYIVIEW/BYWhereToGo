@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface BYFirstPageScrollerView : UIScrollView
+
 -(void)makeScrollerView;
 @end
